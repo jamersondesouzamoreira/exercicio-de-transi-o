@@ -1,0 +1,232 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS E RESETS
+   ========================================= */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+:root {
+  --bg:      #f5f4f0;
+  --surface: #ffffff;
+  --dark:    #0d0d14;
+  --ink:     #1a1a2e;
+  --muted:   #8888a0;
+  --border:  #e0e0ea;
+  --c1:      #e63b60; /* Rosa */
+  --c2:      #7c3bfc; /* Roxo */
+  --c3:      #3bfcd4; /* Ciano */
+  --radius:  14px;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* =========================================
+   HERO / CABEÇALHO
+   ========================================= */
+.hero {
+  min-height: 50vh;
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  text-align: center; 
+  padding: 4rem 2rem;
+  background: var(--dark); 
+  color: #fff;
+  position: relative;
+}
+.hero::before {
+  content: ''; 
+  position: absolute; 
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 80%, rgba(124,59,252,0.25) 0%, transparent 60%);
+}
+.hero-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em; 
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase; 
+  margin-bottom: 1rem;
+}
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  line-height: 0.95;
+}
+.word { display: block; }
+.w1 { color: #fff; }
+.w2 { color: transparent; -webkit-text-stroke: 1.5px var(--c1); }
+
+.hero-sub {
+  margin-top: 1rem; 
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.5); 
+  letter-spacing: 0.15em;
+}
+.hero-scroll {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+}
+
+/* =========================================
+   ESTRUTURA DOS CARDS / GRID
+   ========================================= */
+.chapter { 
+  padding: 5rem 2rem; 
+  max-width: 1100px; 
+  margin: 0 auto; 
+}
+.chapter-header {
+  margin-bottom: 3rem; 
+}
+.chapter-num {
+  font-size: 0.8rem;
+  color: var(--muted); 
+  font-weight: bold;
+}
+.chapter-header h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+.chapter-header p { 
+  color: var(--muted); 
+  font-size: 0.95rem; 
+}
+
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 1.5rem; 
+}
+
+.demo-card {
+  background: var(--surface); 
+  border: 1px solid var(--border);
+  border-radius: var(--radius); 
+  padding: 1.5rem;
+  display: flex; 
+  flex-direction: column; 
+  gap: 1rem;
+}
+.demo-label {
+  font-size: 0.72rem; 
+  font-weight: 700;
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+  color: var(--muted);
+}
+.demo-stage {
+  flex: 1; 
+  min-height: 100px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  background: #f9f9fc; 
+  border-radius: 8px; 
+  padding: 1rem;
+}
+.demo-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.demo-code {
+  font-size: 0.75rem;
+  color: var(--dark); 
+  background: #f0edff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* =========================================
+   ESTRUTURA DA PISTA E DA BOLA
+   ========================================= */
+.track {
+  width: 90%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ball {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  
+  /* Configuração compartilhada da animação: 
+     Chama a regra 'moveBall', dura 2 segundos, aceleração suave (ease-in-out) e roda infinito */
+  animation: moveBall 2s ease-in-out infinite;
+}
+
+/* =========================================
+   DESCRIÇÃO TÉCNICA DAS DIREÇÕES (SOLICITADO)
+   ========================================= */
+
+/* 1. NORMAL (Padrão do Navegador):
+  A animação reproduz do frame inicial (0%) ao frame final (100%).
+  Ao atingir o fim da linha, o objeto sofre um reset imediato para a posição de origem.
+*/
+.anim-normal {
+  animation-direction: normal;
+  background: var(--c1);
+}
+
+/* 2. REVERSE:
+  Inverte completamente o fluxo de execução. A animação inicia em 100% 
+  e corre em sentido retrógrado até alcançar o estágio de 0%. 
+  O reset joga o elemento instantaneamente de volta para o ponto final.
+*/
+.anim-reverse {
+  animation-direction: reverse;
+  background: var(--c2);
+}
+
+/* 3. ALTERNATE:
+  Muda dinamicamente o sentido a cada ciclo. 
+  - Ciclo 1 (Ímpar): Roda para frente (0% → 100%)
+  - Ciclo 2 (Par): Roda em reverso (100% → 0%)
+  Isso elimina o salto brusco e cria um movimento de vai e vem contínuo.
+*/
+.anim-alternate {
+  animation-direction: alternate;
+  background: var(--c3);
+}
+
+/* Regra de movimento: Desloca o elemento de ponta a ponta da pista */
+@keyframes moveBall {
+  0% {
+    left: 0;
+  }
+  100% {
+    /* Move até o final da pista diminuindo o diâmetro da própria bola */
+    left: calc(100% - 18px);
+  }
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.site-footer { 
+  text-align: center; 
+  padding: 2rem 1rem; 
+  color: var(--muted); 
+  font-size: 0.85rem; 
+  border-top: 1px solid var(--border); 
+  margin-top: 2rem;
+}

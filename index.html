@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Animation Direction Demo</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-eyebrow">Propriedades CSS</div>
+    <h1 class="hero-title">
+      <span class="word w1">Animation</span>
+      <span class="word w2">Direction</span>
+    </h1>
+    <p class="hero-sub">Normal · Reverse · Alternate</p>
+    <div class="hero-scroll">↓ veja o comportamento abaixo</div>
+  </header>
+
+  <section class="chapter" id="animations">
+    <div class="chapter-header">
+      <span class="chapter-num">01</span>
+      <h2>Direção de Animação</h2>
+      <p>Visualização prática de como os ciclos de frames se comportam</p>
+    </div>
+    
+    <div class="grid">
+
+      <div class="demo-card">
+        <div class="demo-label">Normal (Padrão)</div>
+        <div class="demo-stage">
+          <div class="track">
+            <div class="ball anim-normal"></div>
+          </div>
+        </div>
+        <p class="demo-desc">A animação roda do início ao fim (0% → 100%), dá um "salto" e reinicia do zero.</p>
+        <code class="demo-code">animation-direction: normal;</code>
+      </div>
+
+      <div class="demo-card">
+        <div class="demo-label">Reverse</div>
+        <div class="demo-stage">
+          <div class="track">
+            <div class="ball anim-reverse"></div>
+          </div>
+        </div>
+        <p class="demo-desc">A animação roda de trás para frente (100% → 0%), iniciando do ponto final e voltando.</p>
+        <code class="demo-code">animation-direction: reverse;</code>
+      </div>
+
+      <div class="demo-card">
+        <div class="demo-label">Alternate</div>
+        <div class="demo-stage">
+          <div class="track">
+            <div class="ball anim-alternate"></div>
+          </div>
+        </div>
+        <p class="demo-desc">A animação vai para a frente no primeiro ciclo e volta para trás no segundo, sem saltos.</p>
+        <code class="demo-code">animation-direction: alternate;</code>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Projeto Atualizado · <strong>CSS Creative Animations</strong></p>
+  </footer>
+
+</body>
+</html>
