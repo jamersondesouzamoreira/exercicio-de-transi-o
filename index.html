@@ -3,27 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSS Animation Direction Demo</title>
+  <title>CSS Animation Direction</title>
+  
   <link rel="stylesheet" href="style.css" />
+  
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <header class="hero">
-    <div class="hero-eyebrow">Propriedades CSS</div>
+    <div class="hero-eyebrow">Arquivos Separados e Conectados</div>
     <h1 class="hero-title">
       <span class="word w1">Animation</span>
       <span class="word w2">Direction</span>
     </h1>
     <p class="hero-sub">Normal · Reverse · Alternate</p>
-    <div class="hero-scroll">↓ veja o comportamento abaixo</div>
   </header>
 
   <section class="chapter" id="animations">
     <div class="chapter-header">
       <span class="chapter-num">01</span>
       <h2>Direção de Animação</h2>
-      <p>Visualização prática de como os ciclos de frames se comportam</p>
+      <p>O HTML está chamando o arquivo de estilização através da tag link.</p>
     </div>
     
     <div class="grid">
@@ -46,7 +47,7 @@
             <div class="ball anim-reverse"></div>
           </div>
         </div>
-        <p class="demo-desc">A animação roda de trás para frente (100% → 0%), iniciando do ponto final e voltando.</p>
+        <p class="demo-desc">A animação roda ao contrário (100% → 0%), iniciando do ponto final e voltando de ré.</p>
         <code class="demo-code">animation-direction: reverse;</code>
       </div>
 
@@ -57,7 +58,7 @@
             <div class="ball anim-alternate"></div>
           </div>
         </div>
-        <p class="demo-desc">A animação vai para a frente no primeiro ciclo e volta para trás no segundo, sem saltos.</p>
+        <p class="demo-desc">Efeito "vai-e-vem". Vai para a frente no primeiro ciclo e volta para trás no segundo ciclo.</p>
         <code class="demo-code">animation-direction: alternate;</code>
       </div>
 
@@ -65,7 +66,7 @@
   </section>
 
   <footer class="site-footer">
-    <p>Projeto Atualizado · <strong>CSS Creative Animations</strong></p>
+    <p>Projeto Organizado · HTML e CSS Separados</p>
   </footer>
 
 </body>

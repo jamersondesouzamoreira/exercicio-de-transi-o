@@ -31,7 +31,7 @@ body {
    HERO / CABEÇALHO
    ========================================= */
 .hero {
-  min-height: 50vh;
+  min-height: 45vh;
   display: flex; 
   flex-direction: column;
   align-items: center; 
@@ -54,11 +54,13 @@ body {
   color: rgba(255,255,255,0.5);
   text-transform: uppercase; 
   margin-bottom: 1rem;
+  position: relative;
 }
 .hero-title {
   font-family: 'DM Serif Display', serif;
-  font-size: clamp(3rem, 8vw, 5rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 0.95;
+  position: relative;
 }
 .word { display: block; }
 .w1 { color: #fff; }
@@ -69,18 +71,14 @@ body {
   font-size: 1.1rem;
   color: rgba(255,255,255,0.5); 
   letter-spacing: 0.15em;
-}
-.hero-scroll {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.3);
+  position: relative;
 }
 
 /* =========================================
    ESTRUTURA DOS CARDS / GRID
    ========================================= */
 .chapter { 
-  padding: 5rem 2rem; 
+  padding: 4rem 2rem; 
   max-width: 1100px; 
   margin: 0 auto; 
 }
@@ -94,8 +92,9 @@ body {
 }
 .chapter-header h2 {
   font-family: 'DM Serif Display', serif;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
 }
 .chapter-header p { 
   color: var(--muted); 
@@ -147,6 +146,7 @@ body {
   border-radius: 4px;
   text-align: center;
   font-weight: bold;
+  font-family: monospace;
 }
 
 /* =========================================
@@ -168,65 +168,47 @@ body {
   border-radius: 50%;
   position: absolute;
   left: 0;
-  
-  /* Configuração compartilhada da animação: 
-     Chama a regra 'moveBall', dura 2 segundos, aceleração suave (ease-in-out) e roda infinito */
   animation: moveBall 2s ease-in-out infinite;
 }
 
 /* =========================================
-   DESCRIÇÃO TÉCNICA DAS DIREÇÕES (SOLICITADO)
+   DIREÇÕES DE ANIMAÇÃO COMUNICAÇÃO HTML/CSS
    ========================================= */
 
-/* 1. NORMAL (Padrão do Navegador):
-  A animação reproduz do frame inicial (0%) ao frame final (100%).
-  Ao atingir o fim da linha, o objeto sofre um reset imediato para a posição de origem.
-*/
+/* 1. NORMAL */
 .anim-normal {
   animation-direction: normal;
   background: var(--c1);
 }
 
-/* 2. REVERSE:
-  Inverte completamente o fluxo de execução. A animação inicia em 100% 
-  e corre em sentido retrógrado até alcançar o estágio de 0%. 
-  O reset joga o elemento instantaneamente de volta para o ponto final.
-*/
+/* 2. REVERSE */
 .anim-reverse {
   animation-direction: reverse;
   background: var(--c2);
 }
 
-/* 3. ALTERNATE:
-  Muda dinamicamente o sentido a cada ciclo. 
-  - Ciclo 1 (Ímpar): Roda para frente (0% → 100%)
-  - Ciclo 2 (Par): Roda em reverso (100% → 0%)
-  Isso elimina o salto brusco e cria um movimento de vai e vem contínuo.
-*/
+/* 3. ALTERNATE */
 .anim-alternate {
   animation-direction: alternate;
   background: var(--c3);
 }
 
-/* Regra de movimento: Desloca o elemento de ponta a ponta da pista */
+/* Movimento da bola */
 @keyframes moveBall {
   0% {
     left: 0;
   }
   100% {
-    /* Move até o final da pista diminuindo o diâmetro da própria bola */
     left: calc(100% - 18px);
   }
 }
 
-/* =========================================
-   FOOTER
-   ========================================= */
+/* FOOTER */
 .site-footer { 
   text-align: center; 
   padding: 2rem 1rem; 
   color: var(--muted); 
   font-size: 0.85rem; 
   border-top: 1px solid var(--border); 
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
